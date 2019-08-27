@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Td = (props) =>(
-    <td >{props.children}</td>
+    <td className={""}>{props.children}</td>
 );
 
 export default Td;

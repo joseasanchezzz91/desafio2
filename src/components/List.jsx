@@ -9,12 +9,16 @@ import Td from './table/Td';
 import S from './table/S.jsx';
 import Button from './table/Button';
 
+
 class List extends Component {
     constructor(props) {
         super(props);
         this.state = {
             data: getAll,
-            ring: true
+            ring: true,
+            estilo:"kill",
+            btnring:"primary",
+            btnkill:"danger"
         }
 
     }
@@ -35,7 +39,7 @@ class List extends Component {
         this.setState({ data: newdata });
     };
     render() {
-        const { data, ring } = this.state;
+        const { data, ring,estilo,btnkill,btnring } = this.state;
         return (
             <div>
                 <Table >
@@ -51,13 +55,13 @@ class List extends Component {
                     <Tbody>
                         {data.map((e, i) => (
                             <Tr key={i}>
-                                {  e.kill ? <Td > <S> {e.name } </S></Td>  : <Td> {e.name} </Td>  }
+                                {  e.kill ? <Td kill={estilo} > <S > {e.name } </S></Td>  : <Td> {e.name} </Td>  }
                                <Td> {  e.kill ? <S> {e.race } </S> :e.race  }</Td> 
                                <Td > {  e.kill ? <S> {e.age } </S> :e.age }</Td> 
                                <Td> {  e.kill ? <S> {e.weapon } </S> :e.weapon  }</Td> 
                           
-                                <Td> {ring ? <Button  onClick={() => (this.handleClick(e))}>RING</Button> : ""}</Td>
-                                <Td><button onClick={() => (this.handleKill(e))}>KILL</button></Td>
+                                <Td> {ring ? <Button color={btnring} event={() => (this.handleClick(e))}>RING</Button> : ""}</Td>
+                                <Td><Button color={btnkill} event={() => (this.handleKill(e))}>KILL</Button></Td>
                             </Tr>
                         ))}
                     </Tbody>

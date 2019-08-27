@@ -8,6 +8,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.kill{
+  background: gray;
+}
+
 .index {
   height: 100vh;
   background-color: #282c34;
