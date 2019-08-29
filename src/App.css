@@ -9,7 +9,7 @@ body {
 }
 
 .kill{
-  background: gray;
+  background: #a59e9eb3;
 }
 
 .index {
@@ -46,4 +46,8 @@ table {
 
 .controls div {
   cursor: pointer;
+}
+
+s {
+  background: #a59e9eb3;
 }

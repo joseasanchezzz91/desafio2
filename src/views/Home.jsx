@@ -11,7 +11,7 @@ class Home extends Component {
             <div className="index">
                 <H2>Fellowship of the Ring</H2>
                 <input type="text" placeholder="search hero" />
-                <div className="container">
+                <div>
                 <List />
                 </div>
             </div>

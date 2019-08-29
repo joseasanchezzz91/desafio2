@@ -16,9 +16,9 @@ class List extends Component {
         this.state = {
             data: getAll,
             ring: true,
-            estilo:"kill",
-            btnring:"primary",
-            btnkill:"danger"
+            estilo: "kill",
+            btnring: "btn btn-primary",
+            btnkill: "btn btn-danger"
         }
 
     }
@@ -32,14 +32,14 @@ class List extends Component {
     handleKill = e => {
         const { data } = this.state;
         const datakill = e;
-        datakill["kill"]=true;
+        datakill["kill"] = true;
         console.log(datakill);
         const newdata = data.filter(r => r !== e);
         newdata.push(datakill);
         this.setState({ data: newdata });
     };
     render() {
-        const { data, ring,estilo,btnkill,btnring } = this.state;
+        const { data, ring, estilo, btnkill, btnring } = this.state;
         return (
             <div>
                 <Table >
@@ -55,13 +55,13 @@ class List extends Component {
                     <Tbody>
                         {data.map((e, i) => (
                             <Tr key={i}>
-                                {  e.kill ? <Td kill={estilo} > <S > {e.name } </S></Td>  : <Td> {e.name} </Td>  }
-                               <Td> {  e.kill ? <S> {e.race } </S> :e.race  }</Td> 
-                               <Td > {  e.kill ? <S> {e.age } </S> :e.age }</Td> 
-                               <Td> {  e.kill ? <S> {e.weapon } </S> :e.weapon  }</Td> 
-                          
-                                <Td> {ring ? <Button color={btnring} event={() => (this.handleClick(e))}>RING</Button> : ""}</Td>
-                                <Td><Button color={btnkill} event={() => (this.handleKill(e))}>KILL</Button></Td>
+                                {e.kill ? <Td  > <S > {e.name} </S></Td> : <Td> {e.name} </Td>}
+                                <Td> {e.kill ? <S> {e.race} </S> : e.race}</Td>
+                                <Td > {e.kill ? <S> {e.age} </S> : e.age}</Td>
+                                <Td> {e.kill ? <S> {e.weapon} </S> : e.weapon}</Td>
+
+                                <Td> {ring ? <Button estilo={this.state.btnring} event={() => (this.handleClick(e))}>RING</Button> : ""}</Td>
+                                <Td><Button estilo={this.state.btnkill} event={() => (this.handleKill(e))}>KILL</Button></Td>
                             </Tr>
                         ))}
                     </Tbody>
